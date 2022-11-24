@@ -1,4 +1,4 @@
-Ferramenta Library
+# Ferramenta Library
 
 [![Release & Publish](https://github.com/xorders/ferramenta/actions/workflows/publish.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/publish.yml)
 [![Tests](https://github.com/xorders/ferramenta/actions/workflows/tests.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/tests.yml)
