@@ -1,26 +1,27 @@
-name: Manual docs upload to Cloudflare Pages
+name: Manual docs publish to Cloudflare Pages
 
 on:
   workflow_dispatch:
 
-docs:
-  runs-on: ubuntu-latest
-  permissions: write-all
-  timeout-minutes: 30
-  steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install modules
-      run: npm install
-    - name: Build
-      run: npm run docs:build
-    - name: List files
-      run: ls -la docs
-    - name: Publish to Cloudflare Pages
-      uses: cloudflare/pages-action@1
-      with:
-        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        accountId: 662b9e7e1ff6240e1340da82b4c50b06
-        projectName: ferramenta
-        directory: docs
-        gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Build
+        run: npm run docs:build
+      - name: List files
+        run: ls -la docs
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: 662b9e7e1ff6240e1340da82b4c50b06
+          projectName: ferramenta
+          directory: docs
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
