@@ -1,0 +1,92 @@
+{
+	"name": "ferramenta",
+	"version": "1.0.12",
+	"description": "NodeJS/Typescript collection of utility functions",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/xorders/ferramenta.git"
+	},
+	"bugs": {
+		"url": "https://github.com/xorders/ferramenta/issues"
+	},
+	"homepage": "https://github.com/xorders/ferramenta",
+	"bin": {
+		"get-json-value": "dist/cjs/bin/get-json-value.js",
+		"set-json-value": "dist/cjs/bin/set-json-value.js"
+	},
+	"scripts": {
+		"build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
+		"build:cjs": "tsc -p configs/tsconfig.cjs.json && chmod -R +x dist/cjs/bin/*.js",
+		"build:esm": "tsc -p configs/tsconfig.esm.json",
+		"build:types": "tsc -p configs/tsconfig.types.json",
+		"clean": "rimraf dist",
+		"prepare": "husky install",
+		"test": "jest --no-cache --runInBand",
+		"test:cov": "jest --coverage --no-cache --runInBand",
+		"lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
+		"lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\"",
+		"docs:build": "typedoc --name 'Ferramenta Library' --includeVersion --readme ./DOCS.md --out docs src"
+	},
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
+	"types": "dist/types/index.d.ts",
+	"devDependencies": {
+		"@commitlint/cli": "^17.3.0",
+		"@commitlint/config-conventional": "^17.3.0",
+		"@types/jest": "^29.2.3",
+		"@typescript-eslint/eslint-plugin": "^5.44.0",
+		"@typescript-eslint/parser": "^5.44.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"husky": "^8.0.2",
+		"jest": "^29.3.1",
+		"lint-staged": "^13.0.3",
+		"prettier": "2.7.1",
+		"rimraf": "^3.0.2",
+		"ts-jest": "^29.0.3",
+		"ts-node": "^10.9.1",
+		"typedoc": "^0.23.21",
+		"typescript": "^4.9.3"
+	},
+	"eslintConfig": {
+		"parser": "@typescript-eslint/parser",
+		"plugins": [
+			"@typescript-eslint",
+			"prettier"
+		],
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended",
+			"plugin:prettier/recommended"
+		],
+		"ignorePatterns": [
+			"node_modules",
+			"build",
+			"dist",
+			"docs"
+		],
+		"rules": {
+			"eqeqeq": "error",
+			"no-console": "warn",
+			"prettier/prettier": "error"
+		}
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": "npm run lint:fix"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"trailingComma": "all",
+		"tabWidth": 2,
+		"useTabs": true,
+		"printWidth": 120,
+		"bracketSpacing": true
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"license": "MIT"
+}
