@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: npm run docs:build
       - name: List files
-        run: ls -laR docs
+        run: mv docs/functions docs/funcs && ls -laR docs
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
         with:
