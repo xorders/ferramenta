@@ -22,7 +22,7 @@ yarn add ferramenta
 
 # Functions Reference
 
-Functions reference is available at [docs](./docs).
+Functions reference is available at reference website: [ferramenta.xorde.io](https://ferramenta.xorde.io).
 
 # Command Line Reference
 
