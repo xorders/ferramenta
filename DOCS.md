@@ -1,6 +1,10 @@
 [![Release & Publish](https://github.com/xorders/ferramenta/actions/workflows/publish.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/publish.yml)
 [![Tests](https://github.com/xorders/ferramenta/actions/workflows/tests.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/tests.yml)
-[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+![Typescript](https://img.shields.io/npm/dependency-version/ferramenta/dev/typescript)
+![License](https://img.shields.io/npm/l/ferramenta)
+![Version](https://img.shields.io/npm/v/ferramenta)
+[![Github](https://img.shields.io/badge/Source-Github-blue)](https://github.com/xorders/ferramenta)
+
 
 NodeJS/Typescript library of utility functions, and their CLI wrappers.
 
@@ -17,3 +21,7 @@ Yarn:
 ```shell
 yarn add ferramenta
 ```
+
+# Source code
+
+Source code is available at [GitHub](https://github.com/xorders/ferramenta).
