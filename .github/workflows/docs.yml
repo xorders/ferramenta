@@ -1,4 +1,4 @@
-name: Manual docs publish to Cloudflare Pages
+name: Publish docs
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: npm run docs:build
       - name: List files
-        run: ls -la docs
+        run: ls -laR docs
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
         with:
