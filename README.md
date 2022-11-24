@@ -8,6 +8,8 @@ NodeJS/Typescript library of utility functions, and their CLI wrappers.
 
 # Installation
 
+NPM Registry link: https://www.npmjs.com/package/ferramenta
+
 NPM:
 
 ```shell
