@@ -25,7 +25,8 @@
 		"test:cov": "jest --coverage --no-cache --runInBand",
 		"lint": "eslint --cache \"src/**/*.{js,jsx,ts,tsx}\"",
 		"lint:fix": "eslint --cache --fix \"src/**/*.{js,jsx,ts,tsx}\"",
-		"docs:build": "typedoc --name 'Ferramenta Library' --includeVersion --readme ./DOCS.md --out docs src"
+		"docs:build": "typedoc --name 'Ferramenta Library' --includeVersion --readme ./DOCS.md --out docs src",
+		"docs:patch": "mv docs/functions docs/funcs && sed -i '.bak' 's/href=\\\"functions/href=\\\"funcs/g' docs/*.html"
 	},
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
