@@ -81,3 +81,31 @@ Example:
 % set-json-value.js package.json scripts.test 'jest --no-cache' tabs
 > Complete
 ```
+
+# Contributing
+
+## Documentation
+
+Documentation is generated automatically using [TypeDoc](https://typedoc.org/).
+
+This approach is used to avoid maintaining documentation in two places: in code and in README.md.
+
+To build documentation locally, run:
+
+```shell
+npm run docs:build
+```
+
+### Patching documentation
+
+Due to current limitation of Cloudflare where our documentation is hosted, we cannot use `functions` directory to store 
+HTML files related to functions reference (see https://github.com/cloudflare/wrangler2/issues/2240). Instead, we use `funcs` directory. To do that we patch TypeDoc output HTML 
+files replacing all references to `functions` with `funcs`.
+
+To patch documentation, run:
+
+```shell
+npm run docs:patch
+```
+
+As soon as this issue is resolved, we will remove this patching step.
