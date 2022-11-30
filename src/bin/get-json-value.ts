@@ -2,20 +2,22 @@
 
 /**
  * This script will parse json file and return value of the property defined by path separated by '.'
- * Example: get-json-value package.json version
  */
 
 import * as fs from 'fs';
+import * as path from 'path';
 import { getValueByPath } from '../jsonValueByPath';
+import { processArgs } from '../parseScriptProcessArgs';
 
-const args = process.argv.slice(2);
+const args = processArgs.args;
+const self = path.parse(processArgs.name).name;
 
 if (args.length === 0) {
 	// eslint-disable-next-line no-console
 	console.log(`
-Usage: get-json-value <filename> <property-path>
+Usage: ${self} <filename> <property-path>
 
-Example: get-json-value package.json version`);
+Example: ${self} package.json version`);
 	process.exit(1);
 }
 

@@ -6,6 +6,7 @@ import { keyValue } from './keyValue';
 import { methodName } from './methodName';
 import { pickKeys } from './pickKeys';
 import { hasCircularReference } from './hasCircularReference';
+import { parseScriptProcessArgs, processArgs } from './parseScriptProcessArgs';
 
 export {
 	setValueByPath,
@@ -17,4 +18,6 @@ export {
 	methodName,
 	pickKeys,
 	hasCircularReference,
+	parseScriptProcessArgs,
+	processArgs,
 };

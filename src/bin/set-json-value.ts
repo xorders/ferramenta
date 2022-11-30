@@ -7,13 +7,16 @@
 import * as fs from 'fs';
 import { castValueToType, isValidType } from '../castValueToType';
 import { setValueByPath } from '../jsonValueByPath';
+import path from 'path';
+import { processArgs } from '../parseScriptProcessArgs';
 
-const args = process.argv.slice(2);
+const args = processArgs.args;
+const self = path.parse(processArgs.name).name;
 
 if (args.length === 0) {
 	// eslint-disable-next-line no-console
 	console.log(`
-Usage: set-json-value.js <filename> <property-path> <property-value> [options[,options]]
+Usage: ${self} <filename> <property-path> <property-value> [options[,options]]
   filename: any JSON file, example: package.json
   path: path within JSON, example: parent.child.value
   value: any value, can be string, number or object, example:
@@ -29,7 +32,7 @@ Usage: set-json-value.js <filename> <property-path> <property-value> [options[,o
     delete - removes value and its key, provided value argument is ignored and can be anything
     null - sets null as value, provided value argument is ignored and can be anything
 
-Example: set-json-value.js package.json version 1.2.3 tabs`);
+Example: ${self} package.json version 1.2.3 tabs`);
 	process.exit(1);
 }
 
