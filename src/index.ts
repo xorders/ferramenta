@@ -7,6 +7,7 @@ import { methodName } from './methodName';
 import { pickKeys } from './pickKeys';
 import { hasCircularReference } from './hasCircularReference';
 import { parseScriptProcessArgs, processArgs } from './parseScriptProcessArgs';
+import { detectEnvironment } from './detectEnvironment';
 
 export {
 	setValueByPath,
@@ -20,4 +21,5 @@ export {
 	hasCircularReference,
 	parseScriptProcessArgs,
 	processArgs,
+	detectEnvironment,
 };
