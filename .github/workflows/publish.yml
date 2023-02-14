@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       version_override:
-        description: 'Version override (format is "a.b.c", or use "package" to extract version from package.json)'
-        default: 'package'
+        description: 'Version override (format is "a.b.c", or use "auto" to extract version from package.json)'
+        default: 'auto'
       is_draft:
         description: 'Is this release draft? (true/false)'
         default: 'false'
@@ -56,8 +56,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.version_override == 'package' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
-          release_name: v${{ github.event.inputs.version_override == 'package' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
+          tag_name: ${{ github.event.inputs.version_override == 'auto' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
+          release_name: v${{ github.event.inputs.version_override == 'auto' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
           draft: ${{ github.event.inputs.is_draft }}
           prerelease: ${{ github.event.inputs.is_prerelease }}
 
