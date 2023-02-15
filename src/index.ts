@@ -8,6 +8,7 @@ import { pickKeys } from './pickKeys';
 import { hasCircularReference } from './hasCircularReference';
 import { parseScriptProcessArgs, processArgs } from './parseScriptProcessArgs';
 import { detectEnvironment } from './detectEnvironment';
+import { crc16 } from './crc16';
 
 export {
 	setValueByPath,
@@ -22,4 +23,5 @@ export {
 	parseScriptProcessArgs,
 	processArgs,
 	detectEnvironment,
+	crc16,
 };
