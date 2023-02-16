@@ -45,6 +45,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Read version from package.json
         uses: amochkin/action-json@v1
         id: read_version
@@ -52,6 +53,11 @@ jobs:
           property: version
           overrideWith: ${{ github.event.inputs.version_override }}
           useOverride: ${{ github.event.inputs.version_override != 'auto' }}
+
+      - name: Print all output of read_version joined
+        run: echo all outputs ${{join(github.steps.read_version.outputs.*, '\n')}}
+        shell: bash
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
