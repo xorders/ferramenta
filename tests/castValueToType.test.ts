@@ -13,11 +13,15 @@ test('castvaluetotype:number-invalid-no-except', () => {
 });
 
 test('castvaluetotype:boolean-as-string', () => {
-	expect(castValueToType('true', 'boolean')).toBe(true);
+	const result = castValueToType('true', 'boolean');
+	expect(result).toBe(true);
+	expect(typeof result).toBe('boolean');
 });
 
 test('castvaluetotype:boolean-as-digit', () => {
-	expect(castValueToType('1', 'boolean')).toBe(true);
+	const result = castValueToType('1', 'boolean');
+	expect(result).toBe(true);
+	expect(typeof result).toBe('boolean');
 });
 
 test('castvaluetotype:null', () => {
