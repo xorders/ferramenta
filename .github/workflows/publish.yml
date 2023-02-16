@@ -45,11 +45,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Extract version from package.json
-        uses: amochkin/gha-json-value@v1-rc6
-        id: extract-version
+      - name: Read and Write to JSON files
+        uses: amochkin/action-json@v1
+        id: read-version
         with:
           property: version
+          override: ${{ github.event.inputs.version_override }}
+          useOverride: ${{ github.event.inputs.version_override != 'auto' }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -59,8 +61,8 @@ jobs:
           ### Trick to achieve ternary operator:
           ### join(valFalse,valTrue) returns an array, we
           ### then index it [index], as [0] if false and [1] if true
-          tag_name: ${{ join(github.event.inputs.version_override,github.steps.extract-version.outputs.value)[github.event.inputs.version_override == 'auto'] }}
-          release_name: v${{ join(github.event.inputs.version_override,github.steps.extract-version.outputs.value)[github.event.inputs.version_override == 'auto'] }}
+          tag_name: ${{ github.steps.read-version.outputs.value }}
+          release_name: v${{ github.steps.read-version.outputs.value }}
           draft: ${{ github.event.inputs.is_draft }}
           prerelease: ${{ github.event.inputs.is_prerelease }}
 
