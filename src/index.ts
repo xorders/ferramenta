@@ -9,6 +9,8 @@ import { hasCircularReference } from './hasCircularReference';
 import { parseScriptProcessArgs, processArgs } from './parseScriptProcessArgs';
 import { detectEnvironment } from './detectEnvironment';
 import { crc16 } from './crc16';
+import { shallowEqual } from './shallowEqual';
+import { arrIdentical } from './arrIdentical';
 
 export {
 	setValueByPath,
@@ -24,4 +26,6 @@ export {
 	processArgs,
 	detectEnvironment,
 	crc16,
+	shallowEqual,
+	arrIdentical,
 };
