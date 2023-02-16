@@ -56,8 +56,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.event.inputs.version_override == 'auto' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
-          release_name: v${{ github.event.inputs.version_override == 'auto' && github.steps.extract-version.outputs.value || github.event.inputs.version_override }}
+          ### Trick to achieve ternary operator:
+          ### join(valFalse,valTrue) returns an array, we
+          ### then index it [index], as [0] if false and [1] if true
+          tag_name: ${{ join(github.event.inputs.version_override,github.steps.extract-version.outputs.value)[github.event.inputs.version_override == 'auto'] }}
+          release_name: v${{ join(github.event.inputs.version_override,github.steps.extract-version.outputs.value)[github.event.inputs.version_override == 'auto'] }}
           draft: ${{ github.event.inputs.is_draft }}
           prerelease: ${{ github.event.inputs.is_prerelease }}
 
