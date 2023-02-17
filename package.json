@@ -1,6 +1,6 @@
 {
 	"name": "ferramenta",
-	"version": "1.0.22",
+	"version": "1.0.23",
 	"description": "NodeJS/Typescript collection of utility functions",
 	"repository": {
 		"type": "git",
