@@ -1,5 +1,4 @@
-import { setValueByPath } from './jsonValueByPath';
-import { getValueByPath } from './jsonValueByPath';
+import { getValueByPath, setValueByPath } from './jsonValueByPath';
 import { castValueToType, stringToValidTypeString } from './castValueToType';
 import { matchWildcard } from './matchWildcard';
 import { keyValue } from './keyValue';
@@ -11,6 +10,7 @@ import { detectEnvironment } from './detectEnvironment';
 import { crc16 } from './crc16';
 import { shallowEqual } from './shallowEqual';
 import { arrIdentical } from './arrIdentical';
+import { isValidUUID, uuid } from './uuid';
 
 export {
 	setValueByPath,
@@ -28,4 +28,6 @@ export {
 	crc16,
 	shallowEqual,
 	arrIdentical,
+	uuid,
+	isValidUUID,
 };

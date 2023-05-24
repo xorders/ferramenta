@@ -1,4 +1,4 @@
-import { isValidUUID, uuid } from '../src/uuid';
+import { isValidUUID, uuid } from '../src';
 
 describe('isValidUUID', () => {
 	test('valid v1', () => {
