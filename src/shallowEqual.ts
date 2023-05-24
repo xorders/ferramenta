@@ -4,6 +4,7 @@
  * @param object2 Object to compare
  * @returns `true` if objects are equal
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const shallowEqual = (object1: any, object2: any) => {
 	if (!object1 || !object2) return false;
 
