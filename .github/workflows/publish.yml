@@ -54,16 +54,13 @@ jobs:
           override_with: ${{ github.event.inputs.version_override }}
           use_override: ${{ github.event.inputs.version_override != 'auto' }}
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.read_version.outputs.value }}
-          release_name: v${{ steps.read_version.outputs.value }}
+          name: ${{ steps.read_version.outputs.value }}
           draft: ${{ github.event.inputs.is_draft }}
           prerelease: ${{ github.event.inputs.is_prerelease }}
+          tag_name: ${{ steps.read_version.outputs.value }}
 
   docs:
     runs-on: ubuntu-latest
