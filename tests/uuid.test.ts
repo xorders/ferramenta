@@ -5,8 +5,16 @@ describe('isValidUUID', () => {
 		expect(isValidUUID('2444f0b0-b38a-11ed-9552-07fd8fe745ac', 1)).toBe(true);
 	});
 
+	test('invalid v1', () => {
+		expect(isValidUUID('2444f0b0-b38a-01ed-9552-07fd8fe745ac', 1)).toBe(false);
+	});
+
 	test('valid v2', () => {
-		expect(isValidUUID('2444f0b0-b38a-11ed-9552-07fd8fe745ac', 2)).toBe(true);
+		expect(isValidUUID('2444f0b0-b38a-21ed-9552-07fd8fe745ac', 2)).toBe(true);
+	});
+
+	test('invalid v2', () => {
+		expect(isValidUUID('2444f0b0-b38a-01ed-9552-07fd8fe745ac', 2)).toBe(false);
 	});
 });
 
