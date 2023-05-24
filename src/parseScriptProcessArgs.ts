@@ -9,8 +9,8 @@ import { ScriptProcessArgs } from './types/ProcessArgs';
  * const scriptArguments = parseProcessArgs(process.argv).args;
  * const scriptExecutable = parseProcessArgs(process.argv).exec;
  */
-export const parseScriptProcessArgs = (args: string[]): ScriptProcessArgs => {
-	const [exec, name, ...rest] = args;
+export const parseScriptProcessArgs = (args?: string[]): ScriptProcessArgs => {
+	const [exec, name, ...rest] = args || [];
 	return { exec, name, args: rest };
 };
 
