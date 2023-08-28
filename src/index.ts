@@ -11,6 +11,7 @@ import { crc16 } from './crc16';
 import { shallowEqual } from './shallowEqual';
 import { arrIdentical } from './arrIdentical';
 import { isValidUUID, uuid } from './uuid';
+import { luhnCheckDigit, luhnValid } from './luhn';
 
 export {
 	setValueByPath,
@@ -30,4 +31,6 @@ export {
 	arrIdentical,
 	uuid,
 	isValidUUID,
+	luhnCheckDigit,
+	luhnValid,
 };
