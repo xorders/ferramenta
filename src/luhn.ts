@@ -25,7 +25,7 @@ export const luhnCheckDigit = (input: string): number => {
  * @param input Input string
  * @returns `true` if the input passes the Luhn algorithm
  */
-export const luhnValid = (input: string): boolean => {
+export const isValidLuhn = (input: string): boolean => {
 	const checkDigit = luhnCheckDigit(input.slice(0, -1)).toString();
 	return checkDigit === input.slice(-1);
 };

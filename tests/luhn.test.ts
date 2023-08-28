@@ -1,17 +1,17 @@
-import { luhnCheckDigit, luhnValid } from '../src/luhn';
+import { luhnCheckDigit, isValidLuhn } from '../src';
 
 test('Check 123456789', () => {
-	const r = luhnValid('123456789');
+	const r = isValidLuhn('123456789');
 	expect(r).toBe(false);
 });
 
 test('Check 12345674', () => {
-	const r = luhnValid('12345674');
+	const r = isValidLuhn('12345674');
 	expect(r).toBe(true);
 });
 
 test('Check 8532', () => {
-	const r = luhnValid('8532');
+	const r = isValidLuhn('8532');
 	expect(r).toBe(true);
 });
 
