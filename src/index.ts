@@ -12,6 +12,7 @@ import { shallowEqual } from './shallowEqual';
 import { arrIdentical } from './arrIdentical';
 import { isValidUUID, uuid } from './uuid';
 import { luhnCheckDigit, isValidLuhn } from './luhn';
+import { toPascalCase } from './toPascalCase';
 
 export {
 	setValueByPath,
@@ -33,4 +34,5 @@ export {
 	isValidUUID,
 	luhnCheckDigit,
 	isValidLuhn,
+	toPascalCase,
 };
