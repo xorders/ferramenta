@@ -2,11 +2,11 @@
 
 [![Release & Publish](https://github.com/xorders/ferramenta/actions/workflows/publish.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/publish.yml)
 [![Tests](https://github.com/xorders/ferramenta/actions/workflows/tests.yml/badge.svg)](https://github.com/xorde-labs/ferramenta/actions/workflows/tests.yml)
-![Typescript](https://img.shields.io/npm/dependency-version/ferramenta/dev/typescript)
-![License](https://img.shields.io/npm/l/ferramenta)
-![Version](https://img.shields.io/npm/v/ferramenta)
+[![Typescript](https://img.shields.io/npm/dependency-version/ferramenta/dev/typescript)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/npm/l/ferramenta)](https://opensource.org/license/mit/)
+[![Version](https://img.shields.io/npm/v/ferramenta)](https://npmjs.com/ferramenta)
 
-NodeJS/Typescript library of utility functions, and their CLI wrappers.
+Node.js/Typescript library of utility functions, and their CLI wrappers.
 
 # Installation
 
