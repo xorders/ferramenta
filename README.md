@@ -82,6 +82,35 @@ Example:
 > Complete
 ```
 
+### luhn-calculate
+
+This script will calculate Luhn checksum for a given number.
+
+Usage: luhn-calculate <number>
+
+Arguments:
+- number: a number to calculate checksum for
+
+Example:
+
+```shell
+% luhn-calculate 123456789
+> 7
+```
+
+### uuid-generate
+
+This script will generate UUID v4.
+
+Usage: uuid-generate
+
+Example:
+
+```shell
+% uuid-generate
+> 3b9c6c7e-0b0b-4e1a-8b0a-0b0b0b0b0b0b
+```
+
 # Contributing
 
 ## Documentation
