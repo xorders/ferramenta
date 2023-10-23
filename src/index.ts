@@ -13,6 +13,7 @@ import { arrIdentical } from './arrIdentical';
 import { isValidUUID, uuid } from './uuid';
 import { luhnCheckDigit, isValidLuhn } from './luhn';
 import { toPascalCase } from './toPascalCase';
+import { toLocalhost } from './toLocalhost';
 
 export {
 	setValueByPath,
@@ -35,4 +36,5 @@ export {
 	luhnCheckDigit,
 	isValidLuhn,
 	toPascalCase,
+	toLocalhost,
 };
