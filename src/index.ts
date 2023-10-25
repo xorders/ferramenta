@@ -14,6 +14,7 @@ import { isValidUUID, uuid } from './uuid';
 import { luhnCheckDigit, isValidLuhn } from './luhn';
 import { toPascalCase } from './toPascalCase';
 import { toLocalhost } from './toLocalhost';
+import { filterKeys } from './filterKeys';
 
 export {
 	setValueByPath,
@@ -37,4 +38,5 @@ export {
 	isValidLuhn,
 	toPascalCase,
 	toLocalhost,
+	filterKeys,
 };
