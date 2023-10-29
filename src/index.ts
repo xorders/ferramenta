@@ -15,6 +15,7 @@ import { luhnCheckDigit, isValidLuhn } from './luhn';
 import { toPascalCase } from './toPascalCase';
 import { toLocalhost } from './toLocalhost';
 import { filterKeys } from './filterKeys';
+import { scanDirectory } from './scanDirectory';
 
 export {
 	setValueByPath,
@@ -39,4 +40,5 @@ export {
 	toPascalCase,
 	toLocalhost,
 	filterKeys,
+	scanDirectory,
 };
