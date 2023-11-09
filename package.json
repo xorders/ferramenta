@@ -1,6 +1,6 @@
 {
 	"name": "ferramenta",
-	"version": "1.2.6",
+	"version": "1.2.7",
 	"description": "NodeJS/Typescript collection of utility functions",
 	"repository": {
 		"type": "git",
@@ -93,5 +93,8 @@
 			"@commitlint/config-conventional"
 		]
 	},
-	"license": "MIT"
+	"license": "MIT",
+	"lint-staged1": {
+		"*.{js,jsx,ts,tsx}": "npm run lint:fix"
+	}
 }
