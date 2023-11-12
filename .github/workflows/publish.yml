@@ -23,15 +23,19 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup .npmrc file to publish to npm
         uses: actions/setup-node@v3
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+
       - name: Install modules
         run: npm install
+
       - name: Build
         run: npm run build
+
       - name: Publish to npm
         run: npm publish --access public
         env:
@@ -70,12 +74,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Install modules
         run: npm install
+
       - name: Build
         run: npm run docs:build
+
       - name: Patch
         run: npm run docs:patch
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/pages-action@1
         with:

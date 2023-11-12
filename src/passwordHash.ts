@@ -1,4 +1,6 @@
 import * as crypto from 'crypto';
+import { packBuffers, unpackBuffers } from './packBuffers';
+import BufferEncoding from 'buffer';
 
 const PASSWORD_LENGTH = 256;
 const SALT_LENGTH = 64;
@@ -105,4 +107,60 @@ export const verifyPasswordHash = (passwordHash: PasswordHashType, passwordAttem
 			},
 		);
 	});
+};
+
+/**
+ * Compresses a password hash into a string.
+ * @param hash - The password hash to compress.
+ * @param encoding - The encoding to use when converting the buffers to strings.
+ * @returns A string representing the password hash.
+ * @example
+ * const passwordHash = await generatePasswordHash('password'); // default options used
+ * const compressedPasswordHash = compressHash(passwordHash); // default encoding used
+ * const decompressedPasswordHash = decompressHash(compressedPasswordHash); // default encoding used
+ * const isPasswordValid = await verifyPasswordHash(decompressedPasswordHash, 'password'); // default options used
+ * console.log(isPasswordValid); // true
+ */
+export const compressHash = (hash: PasswordHashType, encoding: BufferEncoding = BYTE_TO_STRING_ENCODING): string => {
+	const bufferSalt = Buffer.from(hash.salt, hash.byteToStringEncoding);
+	const bufferHash = Buffer.from(hash.hash, hash.byteToStringEncoding);
+	const bufferDigest = Buffer.from(hash.digest ?? DIGEST);
+
+	const bufferIterations = Buffer.alloc(4);
+	bufferIterations.writeUInt32BE(hash.iterations ?? ITERATIONS, 0);
+
+	const bufferPasswordLength = Buffer.alloc(4);
+	bufferPasswordLength.writeUInt32BE(hash.passwordLength ?? PASSWORD_LENGTH, 0);
+
+	const bufferResult = packBuffers([bufferSalt, bufferHash, bufferDigest, bufferIterations, bufferPasswordLength]);
+	return bufferResult.toString(encoding);
+};
+
+/**
+ * Decompresses a password hash from a string.
+ * @param hash
+ * @param encoding
+ * @returns A PasswordHashType object.
+ * @example
+ * const passwordHash = await generatePasswordHash('password'); // default options used
+ * const compressedPasswordHash = compressHash(passwordHash); // default encoding used
+ * const decompressedPasswordHash = decompressHash(compressedPasswordHash); // default encoding used
+ * const isPasswordValid = await verifyPasswordHash(decompressedPasswordHash, 'password'); // default options used
+ * console.log(isPasswordValid); // true
+ */
+export const decompressHash = (hash: string, encoding: BufferEncoding = BYTE_TO_STRING_ENCODING): PasswordHashType => {
+	const buffer = Buffer.from(hash, encoding);
+	const [bufferSalt, bufferHash, bufferDigest, bufferIterations, bufferPasswordLength] = unpackBuffers(buffer);
+
+	const iterations = bufferIterations.readUInt32BE(0);
+	const passwordLength = bufferPasswordLength.readUInt32BE(0);
+
+	return {
+		salt: bufferSalt.toString(encoding),
+		hash: bufferHash.toString(encoding),
+		digest: bufferDigest.toString() as Digest,
+		iterations,
+		passwordLength,
+		byteToStringEncoding: encoding as ByteToStringEncoding,
+	};
 };

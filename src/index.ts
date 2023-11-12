@@ -16,7 +16,8 @@ import { toPascalCase } from './toPascalCase';
 import { toLocalhost } from './toLocalhost';
 import { filterKeys } from './filterKeys';
 import { scanDirectory } from './scanDirectory';
-import { generatePasswordHash, verifyPasswordHash } from './passwordHash';
+import { compressHash, decompressHash, generatePasswordHash, verifyPasswordHash } from './passwordHash';
+import { packBuffers, unpackBuffers } from './packBuffers';
 
 export {
 	setValueByPath,
@@ -44,4 +45,8 @@ export {
 	scanDirectory,
 	generatePasswordHash,
 	verifyPasswordHash,
+	compressHash,
+	decompressHash,
+	packBuffers,
+	unpackBuffers,
 };
