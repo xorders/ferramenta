@@ -12,7 +12,7 @@ type ByteToStringEncoding = 'hex' | 'base64';
 /**
  * PasswordHashType is the type of the object that should be stored in the database or otherwise persisted.
  */
-type PasswordHashType = {
+export type PasswordHashType = {
 	/** Randomly generated salt used to generate the password hash. */
 	salt: string;
 	/** The password hash. */
@@ -30,7 +30,7 @@ type PasswordHashType = {
 /**
  * PasswordHashOptions is the type of the object that is passed to the generatePasswordHash function.
  */
-type PasswordHashOptions = {
+export type PasswordHashOptions = {
 	passwordLength: number;
 	saltLength: number;
 	iterations: number;
