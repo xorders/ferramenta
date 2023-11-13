@@ -49,6 +49,6 @@ test('compress_decompress_verify_password', async () => {
 
 test('compress_decompress_verify_password-base64', async () => {
 	const hash = await generatePasswordHash('password', { passwordLength: 64, encoding: 'base64' });
-	const compressed = compressHash(hash, 'base64');
+	const compressed = compressHash(hash);
 	expect(await verifyPasswordHash(decompressHash(compressed, 'base64'), 'password')).toStrictEqual(true);
 });
