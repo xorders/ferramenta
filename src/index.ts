@@ -17,6 +17,8 @@ import { toLocalhost } from './toLocalhost';
 import { filterKeys } from './filterKeys';
 import { scanDirectory } from './scanDirectory';
 import { base32decode, base32encode } from './base32';
+import { compressHash, decompressHash, generatePasswordHash, verifyPasswordHash } from './passwordHash';
+import { packBuffers, unpackBuffers } from './packBuffers';
 
 export {
 	setValueByPath,
@@ -44,4 +46,10 @@ export {
 	scanDirectory,
 	base32encode,
 	base32decode,
+	generatePasswordHash,
+	verifyPasswordHash,
+	compressHash,
+	decompressHash,
+	packBuffers,
+	unpackBuffers,
 };
