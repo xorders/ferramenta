@@ -16,6 +16,7 @@ import { toPascalCase } from './toPascalCase';
 import { toLocalhost } from './toLocalhost';
 import { filterKeys } from './filterKeys';
 import { scanDirectory } from './scanDirectory';
+import { base32decode, base32encode } from './base32';
 
 export {
 	setValueByPath,
@@ -41,4 +42,6 @@ export {
 	toLocalhost,
 	filterKeys,
 	scanDirectory,
+	base32encode,
+	base32decode,
 };

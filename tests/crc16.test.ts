@@ -1,4 +1,4 @@
-import { crc16 } from '../src/crc16';
+import { crc16 } from '../src';
 
 test('string 123456789', () => {
 	const crc = crc16(Buffer.from('123456789'));
