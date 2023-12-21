@@ -10,7 +10,7 @@ Zero dependencies Node.js/Typescript library of utility functions, and their CLI
 
 Contains functions for:
 - JSON parsing
-- UUID generation
+- Lightweight UUID generation
 - Extracting method name within a class
 - Matching wildcard strings
 - Generating and validating Luhn numbers
@@ -19,6 +19,8 @@ Contains functions for:
 - Detecting runtime environment
 - Matching arrays
 - Casting values to specific types
+- Hashing passwords to store in the database (no bcrypt dependency)
+- Encoding and decoding base32 strings
 
 # Installation
 
