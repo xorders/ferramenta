@@ -53,3 +53,16 @@ test('one_element-root_level-type-string', () => {
 		s: simpleNestedObject.o.s,
 	});
 });
+
+test('one_element-root_level-type-string', () => {
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const { b, ...noFalsyObject } = simpleNestedObject.o;
+
+	expect(
+		filterKeys(simpleNestedObject.o, {
+			preset: 'no-falsy',
+		}),
+	).toStrictEqual({
+		...noFalsyObject,
+	});
+});
