@@ -19,6 +19,7 @@ import { scanDirectory } from './scanDirectory';
 import { base32decode, base32encode } from './base32';
 import { compressHash, decompressHash, generatePasswordHash, verifyPasswordHash } from './passwordHash';
 import { packBuffers, unpackBuffers } from './packBuffers';
+import { MaybeArray, MaybeVoid } from './types/Maybe';
 
 export {
 	setValueByPath,
@@ -53,3 +54,5 @@ export {
 	packBuffers,
 	unpackBuffers,
 };
+
+export { MaybeArray, MaybeVoid };

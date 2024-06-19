@@ -44,5 +44,5 @@ export const keyValue = <T>(
 				})
 				.filter((f) => f !== null)
 				.join(options?.separator ?? ', ') ||
-		  (options?.emptyValue ?? '')
+			(options?.emptyValue ?? '')
 		: 'MAX_RECURSIVE_LEVELS_REACHED';
