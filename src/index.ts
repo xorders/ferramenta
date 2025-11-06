@@ -20,6 +20,7 @@ import { base32decode, base32encode } from './base32';
 import { compressHash, decompressHash, generatePasswordHash, verifyPasswordHash } from './passwordHash';
 import { packBuffers, unpackBuffers } from './packBuffers';
 import { MaybeArray, MaybeVoid } from './types/Maybe';
+import { promiseWithTimeout } from './promiseWithTimeout';
 
 export {
 	setValueByPath,
@@ -53,6 +54,7 @@ export {
 	decompressHash,
 	packBuffers,
 	unpackBuffers,
+	promiseWithTimeout,
 };
 
 export { MaybeArray, MaybeVoid };
